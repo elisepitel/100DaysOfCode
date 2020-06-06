@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => { 
     
-    var dateInput = document.getElementById('dateInput').value;
+    var dateInput = document.getElementById('dateInput');
     //var dateEntered = new Date(dateInput);
 
     const calculate = document.getElementById('calculate');
 
-
-    console.log(dateInput);
-
-
-
     calculate.addEventListener ('click', (e) => {
-        alert("You'll finish the 100 days of code challenge the");
+        if (dateInput.value){
+            alert("You are going to start the " + dateInput.value);
+        }
     });
 
 });
@@ -33,4 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         dateEntered.value = month_name[curr_month] + "," + curr_year;
         console.log(input.value);
     }
+        dateInput.addEventListener ('click', (e) => {
+        if (dateInput.value){
+            console.log(dateInput.value);
+        }
+    });
+  
     }*/
