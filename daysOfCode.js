@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => { 
 
 
-    const form = document.getElementById('submitTask');
+ 
+    const calculate = document.getElementById('calculate');
 
-    const input = form.querySelector('input');
+    calculate.addEventListener ('click', (e) => {
+        alert("You'll finish the 100 days of code challenge the");
+    });
+
+});
 
 
-    function getDate() {
+
+
+
+    /*function getDate() {
         var month_name = new Array('January', 'February', 'March',
             'April', 'May', 'June', 'July', 'August', 'September',
             'October', 'November', 'December');
@@ -18,6 +26,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.onload = function(){
         getDate();
-    }
-
-}
+    }*/
