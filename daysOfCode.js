@@ -1,18 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => { 
     
     var dateInput = document.getElementById('dateInput');
-    //var dateEntered = new Date(dateInput);
-
+    var futureDate = new Date();
     const calculate = document.getElementById('calculate');
+
+    function addDays(date, days) {
+        futureDate.setDate(futureDate.getDate() + days);
+        return futureDate;
+    }
 
     calculate.addEventListener ('click', (e) => {
         if (dateInput.value){
-            alert("You are going to start the " + dateInput.value);
+            addDays(dateInput.value, 100);
+            alert("You are going to start the " + futureDate);
+        } else {
+            alert("You need to inform your starting date first")
         }
     });
 
 });
-
 
 
 
@@ -30,10 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dateEntered.value = month_name[curr_month] + "," + curr_year;
         console.log(input.value);
     }
-        dateInput.addEventListener ('click', (e) => {
-        if (dateInput.value){
-            console.log(dateInput.value);
-        }
     });
   
     }*/
