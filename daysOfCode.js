@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return futureDateFormat;
     }
+    //test
 
     calculate.addEventListener ('click', (e) => {
         if (dateInput.value){
