@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {     
     var dateInput = document.getElementById('dateInput');
-    var futureDateFormat = new Date();
+    var futureDate = new Date();
     const calculate = document.getElementById('calculate');
+    var dateCorrectFormat = new Date();
+
+
 
     // return date with correct ordinal
     function dateOrdinal(d) {
@@ -11,28 +14,35 @@ document.addEventListener('DOMContentLoaded', () => {
         else return d + "th";
     };
 
-    // add x day(s) to the informed date
-    function addDays(date, days) {
-        var futureDate = new Date();
+    // format the date
+    function formatDate (dateToFormat) {
 
-        futureDate.setDate(futureDate.getDate() + days);
-
-        //format the date 
-        var day = dateOrdinal(futureDate.getDay()); // day
-        var month = futureDate.getMonth(); // month (in integer 0-11)
-        var year = futureDate.getFullYear(); // year
+        // /!\ getDay get you the day of the week between 0 and 6 when getDate get you the day of the month between 1 and 31
+        var day = dateOrdinal(dateToFormat.getDate()); // day
+        var month = dateToFormat.getMonth(); // month (in integer 0-11)
+        var year = dateToFormat.getFullYear(); // year
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-        futureDateFormat = day + " " + months[month] + " " + year;
+        dateCorrectFormat = day + " " + months[month] + " " + year;
+    };
 
-        return futureDateFormat;
+    // add x day(s) to the informed date
+    function addDays(date, days) {
+        // create a date by passing a date-string into new Date : YYYY-MM-DD
+        const futureDate = new Date(Number(date));
+        futureDate.setDate(date.getDate() + days);
+
+        formatDate(futureDate);
+
+        return dateCorrectFormat;
     }
-    //test
+
+
 
     calculate.addEventListener ('click', (e) => {
         if (dateInput.value){
-            addDays(dateInput.value, 100);
-            alert("You are going to end the 100 days of code challenge the " + futureDateFormat);
+            var dateValue = new Date(dateInput.value);
+            alert("You are going to end the 100 days of code challenge the " + addDays(dateValue, 100));
         } else {
             alert("You need to inform your starting date first")
         }
